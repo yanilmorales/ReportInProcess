@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='' />
+    <meta name='robots' content='noodp, noydir' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://cdn.rawgit.com/anshooarora/extentreports-csharp/3b6cc04fd241b9782606e57fc5e84f0e42172c08/dist/css/extent.css' type='text/css' rel='stylesheet' />
+
+    <title>Prueba reporteria</title>
+
+    
+    <style type='text/css'>
+            
+    </style>
+
+
+</head>
+    
+
+
+	<body class='extent standard default hide-overflow bdd'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+		<nav>
+    <div class="nav-wrapper">
+        <a href="http://extentreports.relevantcodes.com" class="brand-logo blue darken-3">Extent</a>
+
+        <!-- slideout menu -->
+        <ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+            <li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+                        <li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+        </ul>
+
+        <!-- report name -->
+        <span class='report-name'>Casos de pruebas automatizados</span>
+
+        <!-- report headline -->
+        <span class='report-headline'></span>
+
+        <!-- nav-right -->
+        <ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+
+            <a>
+                <span class='suite-start-time label blue darken-3'>1/13/2023 2:39:08 PM Coordinated Universal Time</span>
+            </a>
+            <a>
+                <span class="label blue darken-3">3.1.0</span>
+            </a>
+        </ul>
+    </div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+            
+<div id='test-view' class='view'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- test toggle -->
+            <div class='chip transparent'>
+                <a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+                    <i class='material-icons'>warning</i> Status
+                </a>
+                <ul id='tests-toggle' class='dropdown-content'>
+                    <li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+                    <li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+                    <li status='error'><a href='#!'>Error <i class='material-icons red-text lighten-2'>error</i></a></li>
+                    <li status='warning'><a href='#!'>Warning <i class='material-icons orange-text'>warning</i></a></li>
+                    <li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+                    <li class='divider'></li>
+                    <li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+                </ul>
+            </div>
+            <!-- test toggle -->
+
+            <!-- category toggle -->
+            <!-- category toggle -->
+
+            <!-- clear filters -->
+            <div class='chip transparent hide'>
+                <a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+                    <i class='material-icons'>close</i> Clear
+                </a>
+            </div>
+            <!-- clear filters -->
+
+            <!-- enable dashboard -->
+
+            <div id='toggle-test-view-charts' class='chip transparent'>
+                    <a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+                        <i class='material-icons'>track_changes</i> Dashboard
+                    </a>
+            </div>
+            <!-- enable dashboard -->
+
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+
+
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Features</div>
+                <div class='chart-box'>
+                    <canvas id='parent-analysis' width='100' height='80'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span><span class='strong'>5</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
+                </div>
+            </div>
+        </div>
+
+            <div class='col s12 m4 l4 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Scenarios</div>
+                    <div class='chart-box'>
+                        <canvas id='child-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>28</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>0</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
+
+            <div class='col s12 m4 l4 np-h'>
+                <div class='card-panel nm-v'>
+                    <div class='left panel-name'>Steps</div>
+                    <div class='chart-box'>
+                        <canvas id='grandchild-analysis' width='100' height='80'></canvas>
+                    </div>
+                    <div class='block text-small'>
+                        <span><span class='strong'>73</span> step(s) passed</span>
+                    </div>
+                    <div class='block text-small'>
+                        <span class='strong'>0</span> step(s) failed, <span class='strong'>0</span> others
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Tests</h5>
+
+            <ul id='test-collection' class='test-collection'>
+
+
+                    <li class='test displayed active has-leaf pass' status='pass' bdd='bdd' test-id='1'>
+                        <div class='test-heading'>
+                            <span class='test-name'>01. Administración ARI</span>
+                            <span class='test-time'>1/13/2023 9:39:09 AM</span>
+                            <span class='test-status right pass'>Pass</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='2' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:41.7942645</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.01. Autenticación ARI
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='3' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Registra las Credenciales del Usuario Test y se autentica en sistema
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: aritesttx</pre></div>
+                                                    </li>
+                                                    <li test-id='4' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Aplica Roles Basicos
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: aritesttx<br>-Usuario Basico</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='5' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:22.8459914</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.03. Creación De Usuario
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='6' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        Ingresa informacion del usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Primer Nombre / Razón Social: ARI | Primer Apellido / Nombre Comercial: Test | Usuario: UserTest230113094003 | Identificación de la Persona / Empresa: 230113094003</pre></div>
+                                                    </li>
+                                                    <li test-id='7' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Presiona el botón Aceptar para guardar la informción del usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Se ha realizado la operación con éxito</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='8' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:20.3830504</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.04. Modificación De Usuario
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='9' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Busca al usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: UserTest230113094003</pre></div>
+                                                    </li>
+                                                    <li test-id='10' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        Modifica información del usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Anterior Correo Electrónico: prueba@qaauto.com | Actual Correo Electrónico: prueba@qaauto.com.gob</pre></div>
+                                                    </li>
+                                                    <li test-id='11' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Presiona el botón Aceptar para guardar la información MODIFICADA del usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Se ha realizado la operación con éxito</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='12' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:22.1158936</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.05.Traslado De Usuario
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='13' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Busca al usuario y selecciona la oficina
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: UserTest230113094003 | Nombre de la Oficina(Origen) : BANCO NACIONAL DE PANAMA | Nombre de la Oficina(Destino) : TX PANAMA</pre></div>
+                                                    </li>
+                                                    <li test-id='14' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Guarda los datos del traslado
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Se ha realizado la operación con éxito</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='15' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:39.7588223</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.06.Cambio De Contraseña Primer Login
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='16' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Autenticación de nuevo usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: UserTest230113094003</pre></div>
+                                                    </li>
+                                                    <li test-id='17' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Realiza el cambio de contraseña
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Contraseña Anterior: Test1234 | Nueva Contraseña: AoepxXTIM0</pre></div>
+                                                    </li>
+                                                    <li test-id='18' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Retornar Login Usuario Test
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: aritesttx</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='19' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:40.2108229</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.07.Cambio De Contraseña
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='20' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Autenticación de nuevo usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: UserTest230113094003</pre></div>
+                                                    </li>
+                                                    <li test-id='21' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Realiza el cambio de contraseña
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Contraseña Anterior: AoepxXTIM0 | Nueva Contraseña: AoPNVCtas0</pre></div>
+                                                    </li>
+                                                    <li test-id='22' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Retornar Login Usuario Test
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: aritesttx</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='23' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:28.4885391</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.08. Asignación De Rol
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='24' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Asigna los roles al usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: UserTest230113094003<br>-Cajero<br>-Cajero de Corregiduria<br>-Generar Factura<br>-Operador<br>-Usuario Basico</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='25' status='pass'>
+                                        <span class='scenario-duration right label'>00:02:33.9219696</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.09.Creación de Sujeto Pasivo
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='26' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Asigna los roles al usuario para la Creacion del Sujeto Pasivo
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: aritesttx<br>-Usuario Basico</pre></div>
+                                                    </li>
+                                                    <li test-id='27' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Redirecciona a la página Sujeto Pasivo
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                                    <li test-id='28' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Ingresa los datos requeridos para la creacion del Sujeto Pasivo
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: CED230113024318 | Primer Nombre / Razón Social: Contribuyente | Primer Apellido / Nombre Comercial: Test</pre></div>
+                                                    </li>
+                                                    <li test-id='29' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Crea al Sujeto Pasivo
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='30' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:18.7854980</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            1.10.Ingreso de Placas
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='31' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Ingresa los datos de la placa
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Nombre de la Oficina: TX PANAMA
+Tipo de Placa: AUTOS
+Año de la Placa: 2021
+Rango:4528 - 4528</pre></div>
+                                                    </li>
+                                                    <li test-id='32' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Guarda la placa
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf pass' status='pass' bdd='bdd' test-id='33'>
+                        <div class='test-heading'>
+                            <span class='test-name'>02. Gestiones</span>
+                            <span class='test-time'>1/13/2023 9:45:38 AM</span>
+                            <span class='test-status right pass'>Pass</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='34' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:50.8855238</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            2.01. Pruebas de Generación de Factura desde Deuda Pendiente
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='35' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Asigna permisos para generar la liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>El usuario ya tiene el permiso asignado.</pre></div>
+                                                    </li>
+                                                    <li test-id='36' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Ingresa la información del contribuyente a generar la liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000074370 | Número de Contribuyente: 01-2022-156802 | Primer Nombre / Razón Social: SVEIN | Primer Apellido / Nombre Comercial: VAGEN<br>Producto: Ciudadania | Nombre de la Obligación: Tasa por Trámite | Identificación del Objeto: 0000074370</pre></div>
+                                                    </li>
+                                                    <li test-id='37' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Visualiza en pantalla la liquidación generada o redirecciona a la pagina de pago
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Liquidación: 359</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='38' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:22.8663837</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            2.02. Pruebas de Generación de Cobro General
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='39' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Ingresa el contribuyente al cual se le cargara la deuda a generar
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000035032 | Primer Nombre / Razón Social: MARIA | Primer Apellido / Nombre Comercial: DE</pre></div>
+                                                    </li>
+                                                    <li test-id='40' class='node when pass' status='when pass'>
+                                                        <b>When</b>
+                                                        Se seleccionan los conceptos, costo y cantidad por lo que generara la deuda
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Tipo de concepto: VEHICULOS | Concepto: IMPUESTO DE VEHICULO | Monto de la Obligación: 82 | Cantidad: 2<br>Tipo de concepto: VEHICULOS | Concepto: PRESCRIPCION DE DEUDA | Monto de la Obligación: 54 | Cantidad: 3</pre></div>
+                                                    </li>
+                                                    <li test-id='41' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Presiona el boton que generara la obligación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Liquidación: 360</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf pass' status='pass' bdd='bdd' test-id='42'>
+                        <div class='test-heading'>
+                            <span class='test-name'>05. Módulo Caja</span>
+                            <span class='test-time'>1/13/2023 9:47:52 AM</span>
+                            <span class='test-status right pass'>Pass</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='43' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:55.7862488</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.01. Autenticar Cajero y Apertura de Caja
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='44' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Aplicación de Roles para la Apertura de Caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: aritesttx<br>-Supervisor de CAC</pre></div>
+                                                    </li>
+                                                    <li test-id='45' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Aplica Traslado de oficina al Supervisor CAC
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: aritesttx | Nombre de la Oficina(Origen) : TX PANAMA | Nombre de la Oficina(Destino) : TX PANAMA<br>Se ha realizado la operación con éxito</pre></div>
+                                                    </li>
+                                                    <li test-id='46' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Obtiene la caja que se abrirá
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Caja: CAJA230113094818</pre></div>
+                                                    </li>
+                                                    <li test-id='47' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Autenticación de nuevo usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: UserTest230113094003</pre></div>
+                                                    </li>
+                                                    <li test-id='48' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Apertura de caja por supervisor en sitio
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Caja:: CAJA230113094818 - Prueba automática aplicada por QA |  Cajero UserTest230113094003 | Monto Inicial:: 100.00</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='49' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:20.0012306</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.02. Pago con Instrumento Efectivo
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='50' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Generar liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000074370 | Número de Contribuyente: 01-2022-156802 | Primer Nombre / Razón Social: SVEIN | Primer Apellido / Nombre Comercial: VAGEN<br>Producto: Ciudadania | Nombre de la Obligación: Tasa por Trámite | Identificación del Objeto: 0000074370<br>Número de Liquidación: 361</pre></div>
+                                                    </li>
+                                                    <li test-id='51' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Información del pago en efectivo con cambio, en moneda local
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Nombre del Instrumento de Pago: Efectivo | Monto de la Factura: 70.00 | Monto Recibido: 90.00 | Cambio: 20.00</pre></div>
+                                                    </li>
+                                                    <li test-id='52' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Aplicar pago
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Recibo: 157 | Número de Liquidación: 361</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='53' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:21.9788389</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.03. Pago con Instrumento Cheque
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='54' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Generar liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000074370 | Número de Contribuyente: 01-2022-156802 | Primer Nombre / Razón Social: SVEIN | Primer Apellido / Nombre Comercial: VAGEN<br>Producto: Ciudadania | Nombre de la Obligación: Tasa por Trámite | Identificación del Objeto: 0000074370<br>Número de Liquidación: 362</pre></div>
+                                                    </li>
+                                                    <li test-id='55' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Información del pago en cheque con generación nota de crédito, en moneda local
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Nombre del Instrumento de Pago: Cheque | Monto de la Factura: 70.00 | Monto a Pagar: 112.00 | Número de Aprobación del Pago: AP230113095110 | Cuenta Corriente: 10008774114747 | Número de Cheque: CK230113095110 | Nombre del Banco: BANCO PANAMA | El siguiente pago generara un saldo a favor por C$ 42.00</pre></div>
+                                                    </li>
+                                                    <li test-id='56' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Aplicar pago
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Recibo: 158 | Número de Liquidación: 362 | Número Nota de Crédito: NP-12 | Monto Nota de Crédito: 42.00</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='57' status='pass'>
+                                        <span class='scenario-duration right label'>00:02:01.5530260</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.04. Pago con Instrumento Tarjeta Dédito
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='58' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Generar liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000074370 | Número de Contribuyente: 01-2022-156802 | Primer Nombre / Razón Social: SVEIN | Primer Apellido / Nombre Comercial: VAGEN<br>Producto: Ciudadania | Nombre de la Obligación: Tasa por Trámite | Identificación del Objeto: 0000074370<br>Número de Liquidación: 363</pre></div>
+                                                    </li>
+                                                    <li test-id='59' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Información del pago con tarjeta de dédito, en moneda local
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Nombre del Instrumento de Pago: Tarjeta de Débito | Monto de la Factura: 70.00 | Monto a Pagar: 70.00 | Nombre del Banco: BANCO PANAMA</pre></div>
+                                                    </li>
+                                                    <li test-id='60' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Aplicar pago
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Recibo: 159 | Número de Liquidación: 363</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='61' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:27.1192140</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.05. Pago con Instrumento Tarjeta Crédito
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='62' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Generar liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000074370 | Número de Contribuyente: 01-2022-156802 | Primer Nombre / Razón Social: SVEIN | Primer Apellido / Nombre Comercial: VAGEN<br>Producto: Ciudadania | Nombre de la Obligación: Tasa por Trámite | Identificación del Objeto: 0000074370<br>Número de Liquidación: 364</pre></div>
+                                                    </li>
+                                                    <li test-id='63' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Información del pago con tarjeta de crédito, en moneda local
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Nombre del Instrumento de Pago: Tarjeta de Crédito | Monto de la Factura: 70.00 | Monto a Pagar: 70.00 | Número de Aprobación del Pago: AP230113095433 | Nombre del Banco: BANCO PANAMA | Tipo de Tarjeta de Crédito: Master Card | Número de Aprobación del Pago: 2536 | 4 Últ. Números de Tarjeta de Crédito: 10008770000048 | Fecha de expiración de la Tarjeta de Crédito: 01 oct. 2024</pre></div>
+                                                    </li>
+                                                    <li test-id='64' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Aplicar pago
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Recibo: 160 | Número de Liquidación: 364</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='65' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:27.6534520</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.07. Pago con Instrumento Voucher Bancario
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='66' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Generar liquidación
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 0000074370 | Número de Contribuyente: 01-2022-156802 | Primer Nombre / Razón Social: SVEIN | Primer Apellido / Nombre Comercial: VAGEN<br>Producto: Ciudadania | Nombre de la Obligación: Tasa por Trámite | Identificación del Objeto: 0000074370<br>Número de Liquidación: 365</pre></div>
+                                                    </li>
+                                                    <li test-id='67' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Información del pago con el vaucher bancario, en moneda local
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Nombre del Instrumento de Pago: Voucher Bancario | Monto de la Factura: 70.00 | Monto a Pagar: 70.00 | Número de Voucher: 9685 | Nombre del Banco: BANCO PANAMA</pre></div>
+                                                    </li>
+                                                    <li test-id='68' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Aplicar pago
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de Recibo: 161 | Número de Liquidación: 365</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='69' status='pass'>
+                                        <span class='scenario-duration right label'>00:01:16.1250735</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.09. Cierre de Caja
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='70' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Registrar la información necesaria para liberar caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Cajero: UserTest230113094003 | Comentario de cierre de Caja: Esta liberación de caja es automatica (Test)<br>Datos Del Cierre ********** 
+ Cantidad de tarjeta de Vaucher: 3
+ Monto de tarjeta de Vaucher: 450
+ Cantidad de tarjeta de Credito: 0
+ Monto de tarjeta de Credito: 0
+ Cantidad de cheques: 6
+ Monto de cheques: 465
+ Cantidad de billetes de 100: 0
+ Cantidad de billetes de 50: 3
+ Cantidad de billetes de 20: 0
+ Cantidad de billetes de 10: 2
+ Cantidad de billetes de 5: 0
+ Cantidad de billetes de 2: 0
+ Cantidad de billetes de 1: 9
+ Cantidad de monedas de 1: 0
+ Cantidad de monedas de 0.5: 0
+ Cantidad de monedas de 0.25: 0
+ Cantidad de monedas de 0.10: 0
+ Cantidad de monedas de 0.05: 0
+ Cantidad de monedas de 0.01: 0
+ </pre></div>
+                                                    </li>
+                                                    <li test-id='71' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Realiza el cierre de caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número Cierre de Caja: 38 | Fecha/Hora Apertura: 13 ene. 2023 9:49:20 a. m. | Fecha/Hora Cierre: 13 ene. 2023 9:58:02 a. m.</pre></div>
+                                                    </li>
+                                                    <li test-id='72' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Retornar Login Usuario Test
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario:: aritesttx</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='73' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:39.7194840</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.10. Apertura de Caja
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='74' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Aplicación de Roles para la Apertura de Caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: aritesttx<br>-Supervisor de CAC</pre></div>
+                                                    </li>
+                                                    <li test-id='75' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Obtiene la caja que se abrirá
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Caja: CAJA230113094818</pre></div>
+                                                    </li>
+                                                    <li test-id='76' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Seleccionar la oficina a la que se vinculara la apertura de caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Oficina: TX PANAMA</pre></div>
+                                                    </li>
+                                                    <li test-id='77' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Establecer la información de la apertura de caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Oficina: TX PANAMA | Cajero: ARI Test | Caja: CAJA230113094818 | Monto de Apertura: 100.00</pre></div>
+                                                    </li>
+                                                    <li test-id='78' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Realiza la apertura de la caja
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='79' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:53.3358593</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            5.11. Liberar Caja
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='80' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Aplicación de Roles para la Liberación de Caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: aritesttx<br>-Dirección de Hacienda</pre></div>
+                                                    </li>
+                                                    <li test-id='81' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Seleccionar el cajero al que se le aplicará la liberarción de caja
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                                    <li test-id='82' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Registrar la información necesaria para liberar caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número de caja: CAJA230113094818 (UserTest230113094003) | Comentario de cierre de Caja: Esta liberación de caja es automatica (Test)<br>Datos Del Cierre ********** 
+ Cantidad de tarjeta de Vaucher: 3
+ Monto de tarjeta de Vaucher: 450
+ Cantidad de tarjeta de Credito: 0
+ Monto de tarjeta de Credito: 0
+ Cantidad de cheques: 6
+ Monto de cheques: 465
+ Cantidad de billetes de 100: 0
+ Cantidad de billetes de 50: 3
+ Cantidad de billetes de 20: 0
+ Cantidad de billetes de 10: 2
+ Cantidad de billetes de 5: 0
+ Cantidad de billetes de 2: 0
+ Cantidad de billetes de 1: 9
+ Cantidad de monedas de 1: 0
+ Cantidad de monedas de 0.5: 0
+ Cantidad de monedas de 0.25: 0
+ Cantidad de monedas de 0.10: 0
+ Cantidad de monedas de 0.05: 0
+ Cantidad de monedas de 0.01: 0
+ </pre></div>
+                                                    </li>
+                                                    <li test-id='83' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Realiza la liberación de caja
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Número Cierre de Caja: 39 | Fecha/Hora Apertura: 13 ene. 2023 9:58:55 a. m. | Fecha/Hora Cierre: 13 ene. 2023 9:59:47 a. m.</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf pass' status='pass' bdd='bdd' test-id='84'>
+                        <div class='test-heading'>
+                            <span class='test-name'>06. Notas De Creditos</span>
+                            <span class='test-time'>1/13/2023 9:59:16 AM</span>
+                            <span class='test-status right pass'>Pass</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='85' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:26.8123194</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            6.01.Creación de Nota de Crédito Nueva
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='86' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Redirecciona a la pagina Notas de Crédito: Nueva, e ingresa la información de la nota de crédito
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación del Objeto: 0000081595 | Monto de la Nota de Crédito: 100 | Comentario de la Nota de Crédito: Prueba Nota de Credito Nueva</pre></div>
+                                                    </li>
+                                                    <li test-id='87' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Crea la nota de credito
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr></pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='88' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:19.6854835</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            6.02.Visualizar Nota de Crédito
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='89' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Redirecciona a la pagina Notas de Crédito: Visualizar
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                                    <li test-id='90' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Busca al sujeto pasivo y visualiza las notas de credito
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='91' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:22.8298599</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            6.03.Transferir Nota de Crédito
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='92' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Redirecciona a la pagina Notas de Crédito: Transferir
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                                    <li test-id='93' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Busca al sujeto pasivo y transfiere las notas de credito
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>(, 100.00)</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='94' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:39.0599457</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            6.04.Transferir Nota de Crédito a Terceros
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='95' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Redirecciona a la pagina Notas de Crédito: Transferir a Terceros
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                                    <li test-id='96' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Busca al sujeto pasivo y transfiere las notas de credito a un tercero
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Cliente Origen: 0000081595 | Cliente Destino: 0000035032<br>La transferencia se llevó a cabo satisfactoriamente</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+                    <li class='test displayed active has-leaf pass' status='pass' bdd='bdd' test-id='97'>
+                        <div class='test-heading'>
+                            <span class='test-name'>99. OutputTest</span>
+                            <span class='test-time'>1/13/2023 10:01:05 AM</span>
+                            <span class='test-status right pass'>Pass</span>
+                        </div>
+                        <div class='test-content hide'>
+                                    <div class='scenario node' test-id='98' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:58.1319270</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            99.01.Habilitar Deshabilitar Clientes
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='99' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Habilita/Deshabilita al Cliente
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: CED230113024318<br>Se ha realizado la operación con éxito: Inhabilitar<br>Se ha realizado la operación con éxito: Habilitar</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='100' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:55.1793727</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            99.02.Habilitar Deshabilitar Usuarios
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='101' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Habilita/Deshabilita al Usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación de la Persona / Empresa: 230113094003<br>Se ha realizado la operación con éxito: Inhabilitar<br>Se ha realizado la operación con éxito: Habilitar</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='102' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:49.2888114</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            99.03.Habilitar Deshabilitar Artículos
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='103' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Habilita/Deshabilita al Artículo
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Identificación del Objeto: 2023-35<br>Se ha realizado la operación con éxito: Inhabilitar<br>Se ha realizado la operación con éxito: Habilitar</pre></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+                                    <div class='scenario node' test-id='104' status='pass'>
+                                        <span class='scenario-duration right label'>00:00:23.2896428</span>
+                                        <div class='scenario-desc'>
+                                            <b>Scenario</b>
+                                            99.99. Eliminación De Usuario
+
+                                            
+                                        </div>
+                                            <ul class='steps'>
+                                                    <li test-id='105' class='node given pass' status='given pass'>
+                                                        <b>Given</b>
+                                                        Busca al usuario
+                                                                                                                                                                            <div class='pre'><pre><b>Text Output</b><hr>Usuario: UserTest230113094003</pre></div>
+                                                    </li>
+                                                    <li test-id='106' class='node then pass' status='then pass'>
+                                                        <b>Then</b>
+                                                        Confirmar la Eliminación del Usuario
+                                                                                                                                                                            <div class='pre'></div>
+                                                    </li>
+                                            </ul>
+                                    </div>
+
+                        </div>
+                    </li>
+            </ul>
+        </div>
+    </div>
+    <!-- subview left -->
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='test-name'></h5>
+
+        </div>
+    </div>
+    <!-- subview right -->
+
+</div>
+<!-- test view -->
+            <!-- category view -->
+            
+
+
+    <div id='exception-view' class='view hide'>
+
+        <section id='controls'>
+            <div class='controls grey lighten-4'>
+                <!-- search -->
+                <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                    <a href="#" class='search-div'>
+                        <i class='material-icons'>search</i> Search
+                    </a>
+
+                    <div class='input-field left hide'>
+                        <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                    </div>
+                </div>
+                <!-- search -->
+            </div>
+        </section>
+
+        <div class='subview-left left'>
+
+            <div class='view-summary'>
+                <h5>Exceptions</h5>
+                <ul id='exception-collection' class='exception-collection'>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class='subview-right left'>
+            <div class='view-summary'>
+                <h5 class='exception-name'></h5>
+            </div>
+        </div>
+    </div>
+<!-- exception view -->
+            
+
+
+<div id='dashboard-view' class='view hide'>
+    <div class='card-panel transparent np-v'>
+        <h5>Dashboard</h5>
+
+        <div class='row'>
+            <div class='col s2'>
+                <div class='card-panel r'>
+ <span>Features</span>                     <div class='panel-lead'>5</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+ <span>Scenarios</span>                     <div class='panel-lead'>28</div>
+                </div>
+            </div>
+                <div class='col s2'>
+                    <div class='card-panel r'>
+                        Steps
+                        <div class='panel-lead'>73</div>
+                    </div>
+                </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    Start
+                    <div class='panel-lead'>1/13/2023 2:39:08 PM</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    End
+                    <div class='panel-lead'>1/13/2023 3:04:16 PM</div>
+                </div>
+            </div>
+            <div class='col s2'>
+                <div class='card-panel r'>
+                    Time Taken
+                    <div class='panel-lead'>00:25:08.0959657</div>
+                </div>
+            </div>
+
+                <div class='col s4'>
+                    <div class='card-panel'>
+                        <span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+
+                        <table>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
+                                <tr>
+                                    <td>Host Name</td>
+                                    <td>EC2AMAZ-HDPV05M</td>
+                                </tr>
+                                <tr>
+                                    <td>User Name</td>
+                                    <td>NT AUTHORITY\SYSTEM</td>
+                                </tr>
+                                <tr>
+                                    <td>Host IP</td>
+                                    <td>10.1.21.189</td>
+                                </tr>
+                                <tr>
+                                    <td>Environment</td>
+                                    <td>https://coloncc.tustributos.com</td>
+                                </tr>
+                                <tr>
+                                    <td>Run Test</td>
+                                    <td>jramirez</td>
+                                </tr>
+                                <tr>
+                                    <td>Build</td>
+                                    <td>59</td>
+                                </tr>
+                                <tr>
+                                    <td>Start Date</td>
+                                    <td>13 Jan 2023 9:39:09 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>Final Date</td>
+                                    <td>13 Jan 2023 10:04:11 AM</td>
+                                </tr>
+                                <tr>
+                                    <td>BROWSER</td>
+                                    <td>chrome versión 91.0.4472.77</td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+<!-- dashboard view -->
+            
+
+
+<!-- exception view -->
+
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+			    passParent: 5,
+			    failParent: 0,
+			    fatalParent: 0,
+			    errorParent: 0,
+			    warningParent: 0,
+			    skipParent: 0,
+				
+			    passChild: 28,
+			    failChild: 0,
+			    fatalChild: 0,
+			    errorChild: 0,
+			    warningChild: 0,
+			    skipChild: 0,
+			    infoChild: 0,
+				
+			    passGrandChild: 73,
+			    failGrandChild: 0,
+			    fatalGrandChild: 0,
+			    errorGrandChild: 0,
+			    warningGrandChild: 0,
+			    skipGrandChild: 0,
+			    infoGrandChild: 0
+			};
+		</script>
+
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports-csharp/e468054d67d93c2fd9c8f0f60e31a7ea09fa3bf6/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+		            <script type='text/javascript'>
+			    
+  
+/*!
+ * ExtentReports
+ * http://extentreports.relevantcodes.com/
+ * Version: 3.0.0
+ *
+ * Copyright 2016 Anshoo Arora
+ * Released under the BSD license 
+ */
+
+ $(document).ready(function() {
+          $("span.suite-start-time").remove();
+					$("#dashboard-view div.card-panel div.row div.s2").eq(3).find("div.panel-lead").text($("div.s4 div.card-panel table>tbody>tr").eq(7).find("td").eq(1).html());
+          $("#dashboard-view div.card-panel div.row div.s2").eq(4).find("div.panel-lead").text($("div.s4 div.card-panel table>tbody>tr").eq(8).find("td").eq(1).html());
+					$("div.s4 div.card-panel table>tbody>tr").eq(8).hide();
+					$("div.s4 div.card-panel table>tbody>tr").eq(7).hide();
+					$("a.brand-logo").remove();
+					$("#slide-out").before("<div class='brand-logo blue darken-3'><img src='data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAADkAAAAeCAYAAACWsbYLAAAHBElEQVR42s2ZaUyUVxSGJ02taFUEBGVVEVEBa2Ma0/6ppolbBUEWFcWlqFXrLtqklqrDMjOMCILgXhXrgq1gwQURXKlGm2pqbbVaay029o8x/dVYY3J6nstM6pJq2rQz/Djh5pz3fc89373f+e5cLCJi+acWOnbVMy0kzdElJNVeHZLqyHwuVjEGq5znYf/NXDHLf11kcIotQP9ei55dJd0nbZRuybnpf4clBgYsHBe3dRfJJHVlTIH9l56WmIVHJHximXQb83Sh+IiBAQsH7rMK9XqRIWkFfcLGFV3v816VxC0+Lv3mH5LYhQ0Ss+CIruh6eXTrMsZHDAxYOHDRQKsVFum0BCfn50VO2yGvLG3SSdeZifebp5NfclL6zjsgOvGHahaXPcRHDIzBKgcuGmih2SqKDB9XaOkyxh7efqR1Sddke5uwcav2R83c61rJwxK7uNEUEDGh9L6uXi/dimMxxvjMahvMYcOBiwZaaKJNDq8VSfKO8bkBvSYW/5S0fK/4J9mL/Ufn6Fa0VUfNrNT3rMlMPnx88X1tMH66OjHdJ20QjDE+YmDAwoGLBlpook0Od6EeLdJdoH+i7Vp2RZMc/Oq2THHWStvh1lImGTa2oCrq3T0SMbH8AcWoxdJkYhc1GjPNSH3EwICFAxcNtNBEmxzuQj1aZECSLbxrasG1ZVtPyZ5TP8j6Q99Ipf6dXFAjvgn5pbrdLCEptnW6LV/T7TkgIoMuWq/W4LJ6wUcMDFg4cNGodGmiTQ5ykdOjRfol2q5nb2+SmvO3ZM3nF42VH7gkB75slgxHjbz8do4zWBuMFuEXPmGtawUbWpqMGmOzohoDAxYOXDTQcuuSg1zk9GiR/km2lfHZlbK98apsqf9OivdfkB3Hvpey2q9l0JzND/wS8wd0TsgLChpj8wkfv7qx96zPtMEcc3XdOjPGRwwMWDhw0UALTbTJQS5yerTIkDSnpc3Q5VmDF283k9h39qaU6FOPnlJ6v+3wlf6+CXkDYt4p+yM4zbnJf3SuJVSPbabrZh03xhgfMTBg4cBFAy000SYHucjp0SK1zVuCU52WFzX52x/sNtsqbnr57y8NW+HXZtiK2EFzNpkJzig6JD4jrCU0lNA0e1X07H2CMcZHDAxYOHDRQAtNtMlBLnJ6/BPiLjQgyf6R/v1Vu2APnxEr4wbO2iCb6i7LzhPXZPfJ66YZtRuZUxqYlK9d13kOY4yPGBiwcOCigRaaLm2Ty2uHAXeh+tG2dIrPGzpEt1aFrsrWo1f0nboo6w5ekr2nb8js0iOimGo6KMYYHzEwYOHARQMtNB8t0KvHOt6VoGSHpeOo3Mkjl+02E9985FvTONZqE9n3xU15f8sJCRzjOBOkBWKM8REDAxYOXDTQQhPtVnF2DUi0TdPtdUa/Y756FEsY7F7NhivmOzevrF46JeRVB+gWDU1zVGKM8REDA7bC1WTQQMtoqrbXi9Sul/7mom2Ss/OMRGWsuaXd0aKNI/6trAr5tOlHWbyxUTqMyq32jdfGk2oriZqxRzDG+IiBAQsHLhpooYk2ObxWZJuhK9JpFBsPX5ba8z+Lbc85PVwXNvvoJPVzEP/63M0SMX51XWcKTMkv7TX9E/18nDDGGB8xMGDhwEUDLTTRJge5PF6kfpin8ZSZxLaGq6Zx0CXte89LbGbZbd1uofpeDemSZGunjWNT1IxdLYeBBXXGGOMjBgYsHLhooIUm2uQgFzk9e6wbnX8nZ9dZ87SZDB9vGkjdhdsydVWtvlc55TSN4BR7YIQe3eK0KI5xfx3rGo0vwhzr7IFg4cBFAy000SYHucjp6ZV8NTJjzV22FU+dSVWeuiFztZEEJRfs1w76QnBK/od6+O6tltJj8kZzXo1ZUG+MMT5iYMDCgYsGWmiiTQ5ykdPDJ55C/Zhbo/U9uWuvPK9P/xdToLvJhKU5iiIzK/QAXnJHfztauiXnxfeYvEG36XFjjPERAwMWjrsZoYUm2uQgV5inf2q1HAQKdYtZo2Myy+6xzXQVqnwfaTL8EO47t5ZJNgcn52mh+aN6Tt0iGGN8xMCAdTcjNNBCE+32rgK9ev2hR6+BOpFCPvK6GqbAWD2EuxtMnzk12mBWN+u27KC/G6cb0zE+Yu6GBAcuGmihibZXrz+ePPXoe5UdmbndXC+aLjq/5YIqbskp6cOKphX8FpJaYMEY4yPmxsGBiwZaT552WseVZKrjjfD0kntm8ua34yGJWXjUNJmeUz/mts7acgPn5LbOis80I8W0XEkeMw8DDbRa6eVyIdeSphmxDftnnXR10Q1cLmc9fsXo5HI5yzQjxYCFA7dFo7CV/5tAJxk2ruguDcU0macKfLxQMGDhuB5S6/9fiGvrRuuWvKLvn/X52AJrC9YR/X/9w+dPNgiUWA76p1YAAAAASUVORK5CYII='></div>");
+					
+ });
+                
+$(document).ready(function() {
+    $('#category-collection > .category:first-child, #exception-collection > .exception:first-child, #test-collection > .test:first-child, #author-collection > .author:first-child').click();
+
+    $('#test-collection .test').dynamicTestSearch('#test-view #search-tests');
+	$('#category-collection .category').dynamicTestSearch('#category-view #search-tests');
+    $('#author-collection .author').dynamicTestSearch('#author-view #search-tests');
+	$('#exception-collection .exception').dynamicTestSearch('#exception-view #search-tests');  
+});
+
+/* -- [ sidenav - toggle views ] -- */
+$('.side-nav a').click(function() {
+    $('.side-nav li').removeClass('active');
+
+    var t = $(this); 
+    $('.view').addClass('hide');
+    $('#' + t.attr('view')).removeClass('hide');
+    t.closest('li').addClass('active');
+});
+
+/* -- [ allow selecting item by pressing up & down keys ] -- */
+$(window).keydown(function(e) {
+	var target = null, sibling = null;
+	
+    if ($('input').is(':focus') || $('.featherlight').length > 0) {
+    } else {
+        (currentView === 0) && (target = $('li.test.displayed.active'), sibling = '.test.displayed');
+        (currentView === 1) && (target = $('li.category.displayed.active'), sibling = '.category.displayed');
+        (currentView === 3) && (target = $('li.author.displayed.active'), sibling = '.author.displayed');
+        (currentView === 2) && (target = $('li.exception.displayed.active'), sibling = '.exception.displayed');
+
+        function goToView(view) {
+            $('#slide-out a').filter(function() {
+                return ($(this).attr('view') === view + '-view');
+            }).click();
+        }
+
+        if (!e.ctrlKey && !e.altKey && !e.shiftKey && e.which!==91 && e.which!==93 && e.which!==224) {
+            (e.which === 67) && goToView('category');
+            (e.which === 65) && goToView('author');
+            (e.which === 68) && goToView('dashboard');
+            (e.which === 88) && goToView('exception');
+            (e.which === 84) && goToView('test');
+
+            if (target !== null) {
+                (e.which === 40) && target.nextAll(sibling).first().click();
+                (e.which === 38) && target.prevAll(sibling).first().click();
+            }
+
+            function toggleByStatus(status) {
+                $('#tests-toggle li').filter(function() {
+                    return ($(this).attr('status') == status)
+                }).click();
+            }
+
+            if (currentView === 0) {
+                (e.which === 27) && toggleByStatus('clear');
+                (e.which === 69) && toggleByStatus('error');
+                (e.which === 70) && toggleByStatus('fail');
+                (e.which === 80) && toggleByStatus('pass');
+                (e.which === 83) && toggleByStatus('skip');
+                (e.which === 87) && toggleByStatus('warning');
+            }
+        }
+    }
+});
+
+/* -- [ theme-selector ] -- */
+$('#theme-selector').click(function() {
+    var t = $(this),
+        body = $('body'); 
+    
+    body.toggleClass('dark');
+
+    t.removeClass('white-text');
+    if (body.hasClass('dark')) t.addClass('white-text');
+})
+
+/* -- [ fixed-containers ] -- */
+    var currentView = 0,
+        ct = null,
+        chartHeight = 0;
+
+    var currentBrowserIE = detectIE();
+
+    $(function() {
+        ct = $('#test-view');
+        
+        var timer = false;
+        timer = setInterval(function() {
+            _adjustSize();
+        }, 200);
+        
+        $('.view').mousemove(function() {
+            _adjustSize();
+        });
+        
+        if(currentBrowserIE != false) {
+            $('.subview-left').resizable({
+                minWidth: 300,
+                handles: "e"
+            });
+        } else {
+            $('.subview-left').css({'resize':'horizontal'})
+        }
+        
+        _adjustSize();
+    });
+
+    /* -- Check if current page is test or category --*/
+    function configureView(n) {
+        currentView = n;
+        
+        if (n === -1) {
+            $('body').removeClass('default');
+            return;
+        }
+        
+        $('body').addClass('default');
+        
+        window.scrollTo(0,0);
+        
+        chartHeight = 0;
+        
+        if (n == 0){
+            ct = $('#test-view');
+            
+            setTimeout(function() {
+                if ($('#test-view-charts').is(':visible'))
+                    chartHeight = 180;
+            }, 100);
+        }
+        else if (n == 1) ct = $('#category-view');
+        else if (n == 2) ct = $('#exception-view');
+        else if (n == 3) ct = $('#author-view');
+        else return;
+        
+        var timer = setTimeout(function() {
+            _adjustSize();
+            clearTimeout(timer);
+        }, 50);
+    }
+
+    /* -- Check if current page is test or category --*/
+    function _adjustSize() {
+        var chartHeight = 0;
+        if (currentView === 0 && $('#test-view-charts').is(':visible')) chartHeight = 180;
+
+        ct.find('.view').css({'height':($(window).height() - 50 - chartHeight)+'px'});
+        
+        ct.find('.subview-left, .subview-right').css({'height':($(window).height() - 92 - chartHeight)+'px'});
+        ct.find('.subview-left .view-summary, .subview-right .view-summary').css({'height':($(window).height() - 110 - chartHeight)+'px'});
+        
+        if ($(window).width() < 992) {
+            ct.find('.subview-right').css({'width':Math.round($(window).width() - 115 - ct.find('.subview-left').width())+'px'});
+        }
+        else {
+            ct.find('.subview-right').css({'width':Math.round($(window).width() - 45 - 78 - ct.find('.subview-left').width())+'px'});
+        }
+        
+        _restrictSize();
+    }
+
+    function _restrictSize(){
+        if(ct.find('.subview-left').width() > Math.round($(window).width() * 0.5)){
+            ct.find('.subview-left').css({'width': Math.round($(window).width() * 0.5) +'px'});
+            _adjustSize();
+        }
+    }
+
+    function detectIE() {
+        var ua = window.navigator.userAgent;
+
+        var msie = ua.indexOf('MSIE ');
+        if (msie > 0) {
+            // IE 10 or older => return version number
+            return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+        }
+
+        var trident = ua.indexOf('Trident/');
+        if (trident > 0) {
+            // IE 11 => return version number
+            var rv = ua.indexOf('rv:');
+            return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+        }
+
+        var edge = ua.indexOf('Edge/');
+        if (edge > 0) {
+            // Edge (IE 12+) => return version number
+            return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+        }
+
+        // other browser
+        return false;
+    }
+/* -- [ fixed-containers ] -- */
+
+/* -- [ share charts between views ] -- */
+function chartsView(view) {
+    if (view === 'dashboard') {
+        $('#dashboard-view h5').after($('#charts-row'));
+    } else {
+        $('#test-view-charts').append($('#charts-row'));
+    }
+}
+
+/* -- [ toggle test view charts ] -- */
+$('#toggle-test-view-charts').click(function() {
+    $('#test-view-charts').toggleClass('hide');
+    $(this).children('a').toggleClass('pink-text');
+
+    setTimeout(function() {
+        configureView(0);
+    }, 50);
+});
+
+/* -- [ test ] -- */
+$('.test').click(function() {
+    showCollectionElement('test', $(this));
+    $('.subview-right img').each(function() {
+    	$(this).attr('src', $(this).attr('data-src'));
+    })
+});
+
+/* -- [ category ] -- */
+$('.category').click(function() {
+    showCollectionElement('category', $(this));
+});
+
+/* -- [ author ] -- */
+$('.author').click(function() {
+    showCollectionElement('author', $(this));
+});
+
+/* -- [ exception ] -- */
+$('.exception').click(function() {
+    showCollectionElement('exception', $(this));
+});
+
+function showCollectionElement(viewName, t) {
+    $('.' + viewName).removeClass('active');
+    
+    $('.view-summary > .test-name').removeClass('bdd');
+
+	var view = $('#' + viewName + '-view .subview-right .view-summary');
+    
+    t.toggleClass('active');
+    view.children('.' + viewName + '-content').remove();
+    view.append(t.children('.' + viewName + '-content').clone().removeClass('hide'));
+    view.children('.' + viewName + '-name').html(t.children(':first').children('.' + viewName + '-name').html());
+
+    if (viewName === 'test' && t.hasClass('has-leaf')) {
+        $('.collapsible').collapsible();
+    }
+};
+
+/* -- [ link items to test-view ] -- */
+$('.view-summary').click(function(evt) {
+    var t = $(evt.target);
+    
+    function findTestById(id) {
+        var clicked = false;
+
+        function find(el) {
+            return $('.' + el).filter(function() {
+                return ($(this).attr('test-id') == id)
+            });
+        }
+
+        function click(el) {
+            if (el.length === 0) return;
+
+            if (el.is('.node'))
+                el = el.closest('.test');
+
+            $('.side-nav > li:first-child > a').click();
+            el.click();
+            clicked = true;
+        }
+
+        var t = find('test');
+        if (t.length === 0)
+            var t = find('node');
+            
+        click(t);
+    }
+
+    if (t.is('.linked')) {
+        var id = t.attr('test-id');
+        findTestById(id);
+    }
+	
+	if (t.is('span.category')) {
+		var name = t.text();
+		
+		$('.test').removeClass('displayed').addClass('hide').filter(function() {
+			return ($(this).find('.category').text().indexOf(name) >= 0)
+		}).addClass('displayed').removeClass('hide');
+
+		$('.test.displayed').first().click();
+	}
+});
+
+/* -- [ tests-toggle ] -- */$('#tests-toggle li').click(function() {    var t = $(this),        status = t.attr('status'),        clear = t.attr('clear');        if (clear || status == 'clear')         $('.test').addClass('displayed').removeClass('hide');    else {        $('.test,.leaf').addClass('hide').removeClass('displayed');          $('.test:has(.leaf.' + status + '), .test.' + status).removeClass('hide').addClass('displayed');  $('.leaf.' + status).removeClass('hide').addClass('displayed');    }        $('.test.displayed').first().click();});
+
+/* -- [ tests-toggle ] -- */
+$('#tests-toggle li').click(function() {
+    var t = $(this),
+        status = t.attr('status'),
+        clear = t.attr('clear');
+    
+    if (clear || status == 'clear') 
+        $('.test,.leaf').addClass('displayed').removeClass('hide');
+    else {
+        $('.test,.leaf').addClass('hide').removeClass('displayed');
+        $('.test:has(.leaf.' + status + '), .test.' + status).removeClass('hide').addClass('displayed');
+        $('.leaf.' + status).removeClass('hide').addClass('displayed');
+    }
+    
+    $('.test.displayed').first().click();
+});
+
+/* -- [ category-toggle ] -- */
+$('#category-toggle li a').click(function() { 
+    var t = $(this),
+        name = t.text(),
+        clear = t.attr('clear');
+
+    if (clear === 'true') 
+        $('.test').addClass('displayed').removeClass('hide');
+    else
+        $('.test').removeClass('displayed').addClass('hide').filter(function() {
+            return ($(this).find('.category').text().indexOf(name) >= 0)
+        }).addClass('displayed').removeClass('hide');
+
+    $('.test.displayed').first().click();
+});
+
+/* -- [ author-toggle ] -- */
+$('#author-toggle li a').click(function() {
+    var t = $(this),
+        name = t.text(),
+        clear = t.attr('clear');
+
+    if (clear === 'true')
+        $('.test').addClass('displayed').removeClass('hide');
+    else
+        $('.test').removeClass('displayed').addClass('hide').filter(function() {
+            return ($(this).find('.author').text() === name)
+        }).addClass('displayed').removeClass('hide');
+
+    $('.test.displayed').first().click();
+});
+
+/* -- [ logs-toggle ] -- */
+$('#step-filters span').click(function() {
+    var t = $(this),
+        status = t.attr('status');
+    
+    if ($('#step-filters span').hasClass('border-bottom-highlight')) {
+        $('#test-view .subview-right tr.log').filter(function() {
+            return ($(this).attr('status') === status);
+        }).removeClass('hide');
+    } else {
+        $('#test-view .subview-right tr.log').addClass('hide').filter(function() {
+            return ($(this).attr('status') === status);
+        }).removeClass('hide');
+    }
+    
+    t.addClass('border-bottom-highlight');
+
+    if (status === 'clear') {
+        $('#step-filters span').removeClass('border-bottom-highlight');
+        $('#test-view .subview-right tr.log').removeClass('hide');
+    }
+});
+
+/* -- [ toggle search-box ] -- */
+$('.search-div').click(function() {
+    $(this).toggleClass('enabled').parent().find('.input-field').toggleClass('hide');
+})
+
+/* -- [ filter tests by text in test and categories view ] -- */
+$.fn.dynamicTestSearch = function(id){ 
+    var target = $(this);
+    var searchBox = $(id);
+    
+    searchBox.off('keyup').on('keyup', function() {
+        pattern = RegExp(searchBox.val(), 'gi');
+        
+        if (searchBox.val() == '') {
+            target.removeClass('hide');
+        }
+        else {
+            target.addClass('hide').each(function() {
+                var t = $(this);
+                if (pattern.test(t.html())) {
+                    t.removeClass('hide');
+                }
+            });
+        }
+    });
+    
+    return target;
+}
+
+/* -- [ chart options ] -- */
+var options = {
+	segmentShowStroke: false, 
+	percentageInnerCutout: 55, 
+	animationSteps: 1,
+	legendTemplate: '<ul class=\'<%=name.toLowerCase()%>-legend right\'><% for (var i=0; i<segments.length; i++) {%><li><%if(segments[i].label && segments[i].value){%><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%=segments[i].label%><%}%></li><%}%></ul>'
+};
+
+/* -- [ draw legend for test and step charts ] -- */
+function drawLegend(chart, id) {
+	var helpers = Chart.helpers,
+	    legendHolder = document.getElementById(id);
+
+    legendHolder.innerHTML = chart.generateLegend();
+	
+	helpers.each(legendHolder.firstChild.childNodes, function(legendNode, index) {
+		helpers.addEvent(legendNode, 'mouseover', function() {
+			var activeSegment = chart.segments[index];
+			activeSegment.save();
+			activeSegment.fillColor = activeSegment.highlightColor;
+			chart.showTooltip([activeSegment]);
+			activeSegment.restore();
+		});
+	});
+	
+	Chart.helpers.addEvent(legendHolder.firstChild, 'mouseout', function() { chart.draw(); });
+	$('#' + id).after(legendHolder.firstChild);
+}
+
+/* -- [ parent chart ] -- */
+function drawParentChart() {
+	var data = [
+		{ value: statusGroup.passParent, color: '#00af00', highlight: '#32bf32', label: 'Pass' },
+		{ value: statusGroup.failParent, color:'#F7464A', highlight: '#FF5A5E', label: 'Fail' },
+		{ value: statusGroup.fatalParent, color:'#8b0000', highlight: '#a23232', label: 'Fatal' },
+		{ value: statusGroup.errorParent, color:'#ff6347', highlight: '#ff826b', label: 'Error' },
+		{ value: statusGroup.warningParent, color: '#FDB45C', highlight: '#FFC870', label: 'Warning' },
+		{ value: statusGroup.skipParent, color: '#1e90ff', highlight: '#4aa6ff', label: 'Skip' }
+	];
+		
+	var ctx = $('#parent-analysis').get(0).getContext('2d');
+	testChart = new Chart(ctx).Doughnut(data, options);
+	drawLegend(testChart, 'parent-analysis');
+}; drawParentChart();
+
+/* -- [ children chart ] -- */
+(function drawChildChart() {
+	var data = [
+		{ value: statusGroup.passChild, color: '#00af00', highlight: '#32bf32', label: 'Pass' },
+		{ value: statusGroup.failChild, color:'#F7464A', highlight: '#FF5A5E', label: 'Fail' },
+		{ value: statusGroup.fatalChild, color:'#8b0000', highlight: '#a23232', label: 'Fatal' },
+		{ value: statusGroup.errorChild, color:'#ff6347', highlight: '#ff826b', label: 'Error' },
+		{ value: statusGroup.warningChild, color: '#FDB45C', highlight: '#FFC870', label: 'Warning' },
+		{ value: statusGroup.skipChild, color: '#1e90ff', highlight: '#4aa6ff', label: 'Skip' },
+        { value: statusGroup.infoChild, color: '#46BFBD', highlight: '#5AD3D1', label: 'Info' }
+	];
+	
+    if ($('#child-analysis').length > 0) {
+	    var ctx = $('#child-analysis').get(0).getContext('2d');
+	    stepChart = new Chart(ctx).Doughnut(data, options);
+	    drawLegend(stepChart, 'child-analysis');
+    }
+})();
+
+/* -- [ grand-children chart ] -- */
+(function drawChildChart() {
+	var data = [
+		{ value: statusGroup.passGrandChild, color: '#00af00', highlight: '#32bf32', label: 'Pass' },
+		{ value: statusGroup.failGrandChild, color:'#F7464A', highlight: '#FF5A5E', label: 'Fail' },
+		{ value: statusGroup.fatalGrandChild, color:'#8b0000', highlight: '#a23232', label: 'Fatal' },
+		{ value: statusGroup.errorGrandChild, color:'#ff6347', highlight: '#ff826b', label: 'Error' },
+		{ value: statusGroup.warningGrandChild, color: '#FDB45C', highlight: '#FFC870', label: 'Warning' },
+		{ value: statusGroup.skipGrandChild, color: '#1e90ff', highlight: '#4aa6ff', label: 'Skip' },
+        { value: statusGroup.infoGrandChild, color: '#46BFBD', highlight: '#5AD3D1', label: 'Info' }
+	];
+	
+    if ($('#grandchild-analysis').length > 0) {
+        var ctx = $('#grandchild-analysis').get(0).getContext('2d');
+        stepChart = new Chart(ctx).Doughnut(data, options);
+        drawLegend(stepChart, 'grandchild-analysis');
+    }
+})();
+            
+            </script>
+	</body>
+	
+</html>

@@ -1,0 +1,58 @@
+body {
+    background: #f6f6f6;
+    font-family: 'Source Sans Pro';
+    font-size: 14px;
+} 
+
+body.default { 
+    background: #fff; 
+}
+
+body:not(.default) {
+    overflow: scroll !important;
+}
+
+pre,
+.code-block {
+    background-color: #f8f9fa;
+    border: 1px solid #ebedef;
+    border-radius: 4px;
+    color: #222 !important;
+    font-family: Consolas,monospace;
+    font-size: 13px;
+    margin: 0;
+    padding: 7px 10px;
+    white-space: pre-wrap;
+}
+
+.pre {
+    border: none;
+    white-space: pre;
+    padding: 5px 0 5px 30px;
+    font-family: Consolas;
+    font-size: 13px;
+}
+
+.pre > pre {
+    background: transparent;
+    border: none;
+}
+
+textarea.code-block {
+	min-height: 5rem;
+}
+
+/* -- [ tables ] -- */
+
+th, td {
+    border-bottom: 1px solid #d9d9d9 !important;
+}
+
+th {
+    padding: 5px 10px;
+}
+
+td {
+    padding: 7px 10px;
+    word-break: break-all;
+}
